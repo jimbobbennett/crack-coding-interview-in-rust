@@ -1,4 +1,4 @@
-# Crack code interview problems in Rust
+# Crack code interview problems in Rust 🦀
 
 This repo contains the problems solved during the Crack code interview problems in Rust series from the Microsoft Reactor.
 
