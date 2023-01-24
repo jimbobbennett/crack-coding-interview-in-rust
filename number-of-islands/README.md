@@ -5,6 +5,9 @@ Assuming all around the grid is sea, your job is to calculate the number of isla
 
 An island is defined as a continuous set of grid cells of land that connect either above, below, left or right with another land cell. Diagonal connections are not allowed.
 
+You can catch the recording by selecting the image below
+
+[![Recording](https://img.youtube.com/vi/ugz1YgoZmzI/0.jpg)](https://youtube.com/watch?v=ugz1YgoZmzI)
 
 ## Example
 
