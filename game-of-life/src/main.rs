@@ -2,37 +2,44 @@ fn main() {
     println!("Hello, world!");
 }
 
-fn should_cell_live(board: &Vec<Vec<usize>>, row: usize, col: usize) -> bool {
+fn should_cell_live(board: &Vec<Vec<CellState>>, row: usize, col: usize) -> bool {
     todo!("We should implement this")
 }
 
-fn should_cell_be_born(board: &Vec<Vec<usize>>, row: usize, col: usize) -> bool {
+fn should_cell_be_born(board: &Vec<Vec<CellState>>, row: usize, col: usize) -> bool {
     todo!("We should implement this")
 }
 
-pub fn calc_next_board_state(board: &Vec<Vec<usize>>) -> Vec<Vec<usize>> {
-    let mut output = Vec::<Vec<usize>>::new();
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum CellState {
+    /// The cell is live
+    Alive,
+    /// The cell is not live
+    Dead,
+}
+
+pub fn calc_next_board_state(board: &Vec<Vec<CellState>>) -> Vec<Vec<CellState>> {
+    let mut output = Vec::<Vec<CellState>>::new();
 
     for row in 0..board.len() {
-        let mut new_row = Vec::<usize>::new();
+        let mut new_row = Vec::<CellState>::new();
 
         for col in 0..board[row].len() {
-
             let cell = board[row][col];
-            if cell == 1 {
-                if should_cell_live(&board, row, col) {
-                    new_row.push(1);
+            match cell {
+                CellState::Alive => {
+                    if should_cell_live(&board, row, col) {
+                        new_row.push(CellState::Alive);
+                    } else {
+                        new_row.push(CellState::Dead);
+                    }
                 }
-                else {
-                    new_row.push(0);
-                }
-            }
-            else {
-                if should_cell_be_born(&board, row, col) {
-                    new_row.push(1);
-                }
-                else {
-                    new_row.push(0);
+                CellState::Dead => {
+                    if should_cell_be_born(&board, row, col) {
+                        new_row.push(CellState::Alive);
+                    } else {
+                        new_row.push(CellState::Dead);
+                    }
                 }
             }
         }
@@ -46,21 +53,24 @@ pub fn calc_next_board_state(board: &Vec<Vec<usize>>) -> Vec<Vec<usize>> {
 #[cfg(test)]
 mod test {
     use super::calc_next_board_state;
+    use super::CellState::*;
 
     #[test]
     fn test_1() {
+        #[rustfmt::skip]
         let initial_state = vec![
-            vec![0, 1, 0],
-            vec![0, 0, 1],
-            vec![1, 1, 1],
-            vec![0, 0, 0],
+            vec![Dead,  Alive, Dead], 
+            vec![Dead,  Dead,  Alive], 
+            vec![Alive, Alive, Alive], 
+            vec![Dead,  Dead,  Dead]
         ];
 
+        #[rustfmt::skip]
         let final_state = vec![
-            vec![0, 0, 0],
-            vec![1, 0, 1],
-            vec![0, 1, 1],
-            vec![0, 1, 0],
+            vec![Dead,  Dead,  Dead], 
+            vec![Alive, Dead,  Alive], 
+            vec![Dead,  Alive, Alive], 
+            vec![Dead,  Alive, Dead]
         ];
 
         let calc_next_state = calc_next_board_state(&initial_state);
