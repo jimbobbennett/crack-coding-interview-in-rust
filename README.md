@@ -2,7 +2,7 @@
 
 This repo contains the problems solved during the Crack code interview problems in Rust series from the Microsoft Reactor.
 
-You can find details for the upcoming episodes, and register on the [Microsoft Reactor site](https://developer.microsoft.com/reactor/series/S-1063/).
+You can find details for the upcoming episodes, and register on the [Microsoft Reactor site](https://developer.microsoft.com/reactor/series/S-1110/).
 
 ## Season 1
 
