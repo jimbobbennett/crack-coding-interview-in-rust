@@ -76,11 +76,19 @@ The state on the left gives the one on the right as the next state.
 
 [Register for season 2 now](https://developer.microsoft.com/reactor/series/S-1110/)!
 
-### Episode 1 - Word Search
+### Episode 1 and 2 - Word Search
 
 Given a board made of a grid of characters, and a word, get if the word exists in the grid as contiguous characters.
 
 The word can be constructed from any adjacent cells, up, down, left or right (but not diagonally).
+
+Episode 1 recording:
+
+[![Recording](https://img.youtube.com/vi/rJyeQ4tIv5s/0.jpg)](https://www.youtube.com/live/rJyeQ4tIv5s?feature=share)
+
+Episode 2 recording:
+
+[![Recording](https://img.youtube.com/vi/eYCxaTpeflU/0.jpg)](https://www.youtube.com/live/eYCxaTpeflU?feature=share)
 
 #### Example 1:
 
